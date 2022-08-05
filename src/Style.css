@@ -8,3 +8,23 @@ input{
 .app{
   margin-top: 100px;
 }
+.btnEle{
+  width: 100%;
+}
+.alertEle{
+  color: rgb(182, 201, 18);
+  font-size: 13px;
+}
+.contentShow{
+  margin-left: 40px;
+  color: rgb(182, 201, 18);
+  font-size: 20px;
+  border:1px solid rgba(255, 255, 255, 0.116);
+}
+pre{
+  padding: 20px;
+}
+.likeEle{
+  font-size: 200px;
+  position: absolute;
+}
