@@ -23,8 +23,6 @@ function App() {
   const templist = dateStore
   
 
-
-
   const inputHandling =(e)=>{
     const {name,value}= e.target;
     setdateStore({
@@ -56,27 +54,29 @@ function App() {
 
 
     if(fullName=== ""){
-      errorDateStore.fullName = "Full Name Field in required";
+      errorDateStore.fullName = "*Required";
       check= true
       
     }
     if(UserName=== ""){
-      errorDateStore.UserName = "User Name Field in required";
+      errorDateStore.UserName = "*Rquired";
       check= true
       
     }
     if(date=== ""){
-      errorDateStore.date = "Date Field in required";
+      errorDateStore.date = "*Required";
       check= true
       
     }
 
     const regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-    if(email=== "" || !regEmail.test(email)){
-      errorDateStore.email = "Email Field in required"
+    if(email=== ""){
+      errorDateStore.email = "*Required"
       check= true;
-      
-    };
+      }else if(!regEmail.test(email)){
+        errorDateStore.email = "The provided *email is not valid"
+        check= true;
+      }
       
     // const regPass= /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
     const regPass= /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
@@ -85,16 +85,19 @@ function App() {
       errorDateStore.password = "Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character";
       check= true
     }
-    if(confirmPassWord === "" || confirmPassWord !== password ){
-      errorDateStore.confirmPassWord = "Confirm PassWord Field in required";
+    if(confirmPassWord === "" ){
+      errorDateStore.confirmPassWord = "*Required";
+      check= true
+    }else if(confirmPassWord !== password){
+      errorDateStore.confirmPassWord = "The Password does not Match"
+      check= true;
+    }
+    const regxUrl = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
+    if(url === "" || !regxUrl.test(url) ){
+      errorDateStore.url = "Use a Valid *URL";
       check= true
     }
-    if(url === "" ){
-      errorDateStore.url = "url Field in required";
-      check= true
-      
-    }
-    if(slug === "" ){
+    if(slug === ""){
       errorDateStore.slug = "slug Field in required";
       check= true
       
