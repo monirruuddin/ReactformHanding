@@ -38,6 +38,10 @@ function App() {
  
   const handleSubmit =(e)=>{
     e.preventDefault();
+    validatiofunc(dateStore)
+  }
+
+  function validatiofunc(dateStore){
     const errorDateStore= {
       fullName: "",
       UserName: "",
@@ -48,7 +52,6 @@ function App() {
       url: "",
       slug: "",
     }
-  
     let check= false;
     const  {fullName,UserName,email,date,password,confirmPassWord,url,slug}= dateStore;
 
@@ -89,7 +92,7 @@ function App() {
       errorDateStore.confirmPassWord = "*Required";
       check= true
     }else if(confirmPassWord !== password){
-      errorDateStore.confirmPassWord = "The Password does not Match"
+      errorDateStore.confirmPassWord = " The Password does not Match"
       check= true;
     }
     const regxUrl = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
@@ -106,9 +109,8 @@ function App() {
     if(check)return
     setuseSubmit(true)
     console.log(dateStore);
-
   }
-
+  
   return (
     <Container className="app">
       
