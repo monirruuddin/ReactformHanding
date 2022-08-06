@@ -3,6 +3,7 @@ import './Style.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import{Container,Row,Col,Form} from 'react-bootstrap';
 
+
 function App() {
  
   const initialDate= {
@@ -110,10 +111,9 @@ function App() {
     setuseSubmit(true)
     console.log(dateStore);
   }
-  
+
   return (
-    <Container className="app">
-      
+    <Container className="app">  
       {useSubmit ? <h4>✅ Yeah! Submitted Your Form <h1 className="likeEle"> 👍 </h1> </h4> : <h2>Form Handling</h2>}
         <Row>
           <Col>
@@ -178,11 +178,10 @@ function App() {
             <input className="btn btn-primary mt-3 btnEle" type="submit" value="Submit" />
           </Form>
           }  
-
           </Col>
           <Col>
           <div className="contentShow">
-          <pre>{JSON.stringify(templist, undefined, 2)}</pre>
+          <pre>{JSON.stringify(templist, undefined, 10)}</pre>
           </div>
           </Col>
         </Row> 
